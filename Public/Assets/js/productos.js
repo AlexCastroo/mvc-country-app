@@ -20,6 +20,7 @@ async function mostrarProductos()
                         <button">-</button>
                     </a>
                     <button onclick="eliminarProducto(${item.id})">Eliminar</button>
+                    <button onclick="anadirAlCarrito(${item.id})">Add to Cart</button>
                     
                     </td>
                 </tr>`)
@@ -30,6 +31,27 @@ async function mostrarProductos()
 
 mostrarProductos();
 
+async function anadirAlCarrito(id)
+{
+    let response = await fetch('http://localhost/mvc-country-app/Public/cartproduct', {
+        method: 'POST',
+        body: JSON.stringify({ id }),
+    });
+    let responseData = await response.json();
+    console.log(responseData);
+    if(responseData)
+    {
+        const carrito = document.getElementById('tbody_cart');
+
+            carrito.insertAdjacentHTML('afterbegin', `<tr id="item_${responseData.id}">
+                <td>${responseData.id}</td>
+                <td>${responseData.nombre}</td>
+                <td>${responseData.stock}</td>
+                <td></td>
+            </tr>`)
+
+    }
+}
 
 async function eliminarProducto(id)
 {

@@ -1,5 +1,5 @@
 <form action="" id="productoFormulario">
-    <input type="hidden" name="" id="id" value="<?= $parameters['product']['id'] ?? '0' ?>">
+    <input name="" id="id" value="<?= $parameters['product']['id'] ?? '2' ?>">
     <div>
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" value="<?= $parameters['product']['nombre'] ?? '' ?>">

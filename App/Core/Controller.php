@@ -1,12 +1,16 @@
-<?php 
+<?php
+    class Controller{
+        protected function render($path ,$parameters = [], $layout = ''){
+            
+            ob_start();
+            require_once(__DIR__ . '/../Views/'.$path.'.view.php');
+            if($parameters){
+                require_once(__DIR__ . '/../Views/'. $parameters[0] . '.view.php');
+                $content = ob_get_clean();
+            }else{
+                $content = ob_get_clean();
+            }
 
-class Controller{
-    protected function render($path, $parameters = [], $layout = '')
-    {
-        ob_start(); //Inicializamos el buffer
-        require_once (__DIR__ . '/../Views/'.$path.'.view.php');
-        $content = ob_get_clean(); // Guardamos el contenido del buffer
-
-        require_once (__DIR__ . '/../Views/layouts/'.$layout.'.layout.php');
+            require_once(__DIR__ . '/../Views/layouts/'.$layout.'.layout.php');
+        }
     }
-}

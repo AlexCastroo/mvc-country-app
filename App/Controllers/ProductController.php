@@ -12,7 +12,8 @@ class ProductController extends Controller {
 
     public function home()
     {
-        $this->render('product',[],'site');
+        $this->render('product',['cartProduct'],'site');
+        //$this->render('cartProduct');
     }
 
     public function create()
@@ -22,6 +23,7 @@ class ProductController extends Controller {
         $body = json_decode($postData, true);
 
         $this->productModel->insert([
+            'id' => $body['id'],
             'nombre' => $body['nombre'],
             'categoria' => $body['categoria'],
             'stock' => $body['stock'],
@@ -30,7 +32,7 @@ class ProductController extends Controller {
         $res->success = true;
         $res->message = "El registro fue insertado correctamente";
 
-        echo json_encode($res);
+        //echo json_encode($res);
         $this->home();
     }
 
