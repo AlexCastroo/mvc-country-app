@@ -11,7 +11,7 @@ class ProductController extends Controller {
     }
 
     public function home()
-    {
+    {   
         $this->render('product',['cartProduct'],'site');
         //$this->render('cartProduct');
     }

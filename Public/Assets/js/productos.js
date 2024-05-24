@@ -30,16 +30,15 @@ async function mostrarProductos()
 }
 
 mostrarProductos();
-
 async function anadirAlCarrito(id)
 {
-    let response = await fetch('http://localhost/mvc-country-app/Public/cartproduct', {
+    let response = await fetch('http://localhost/mvc-country-app/Public/cartproduct/addCart', {
         method: 'POST',
         body: JSON.stringify({ id }),
     });
     let responseData = await response.json();
-    console.log(responseData);
-    if(responseData)
+    console.log(responseData.result);
+    if(responseData.success)// Aqui he de controlar el estado del
     {
         const carrito = document.getElementById('tbody_cart');
 
@@ -49,7 +48,6 @@ async function anadirAlCarrito(id)
                 <td>${responseData.stock}</td>
                 <td></td>
             </tr>`)
-
     }
 }
 
