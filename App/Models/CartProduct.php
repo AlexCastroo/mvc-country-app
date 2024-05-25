@@ -8,13 +8,35 @@
             parent::__construct('id','productos', $coneccion);
         }
 
-
         public function addProductCart($id)
         {
-            //print_r($_SESSION['cart']);
             $producto = $this->getById($id);
-            $_SESSION['cart'][] = $producto;
-            //print_r($_SESSION['cart']);
+
+            if (empty($_SESSION['cart'])) {
+                $producto['cart_qty'] = 1;
+                $producto['total'] = $producto['precio'] * $producto['cart_qty'];
+                
+                $_SESSION['cart'][] = $producto;
+            } else {
+                $productFound = false;
+                foreach ($_SESSION['cart'] as &$product) {
+                    if ($id == $product['id']) {
+                        $product['cart_qty']++;
+                        $product['total'] = $product['cart_qty'] * $product['precio'];
+                        $productFound = true;
+                        break;
+                    }
+                }
+                
+                if (!$productFound) {
+                    $producto['cart_qty'] = 1;
+                    $producto['total'] = $producto['precio'];
+                    $_SESSION['cart'][] = $producto;
+                }
+                $_SESSION['sub_total'] += $producto['precio'];
+            }
+            $data = $_SESSION['cart'];
+            //Depuracion => print_r($data);
         }
 
     }

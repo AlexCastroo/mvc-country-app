@@ -37,18 +37,61 @@ async function anadirAlCarrito(id)
         body: JSON.stringify({ id }),
     });
     let responseData = await response.json();
-    console.log(responseData.result);
-    if(responseData.success)// Aqui he de controlar el estado del
+    console.log(responseData);
+    if(responseData.success)
     {
         const carrito = document.getElementById('tbody_cart');
-
-            carrito.insertAdjacentHTML('afterbegin', `<tr id="item_${responseData.id}">
-                <td>${responseData.id}</td>
-                <td>${responseData.nombre}</td>
-                <td>${responseData.stock}</td>
-                <td></td>
+        const total = document.getElementById('total_cart');
+        carrito.innerHTML = '';
+        total.innerHTML = responseData.result.sub_total + '€';
+        responseData.result.productos.forEach(item => {
+            carrito.insertAdjacentHTML('afterbegin', `<tr id="item_${item.id}">
+                <td>${item.id}</td>
+                <td>${item.nombre}</td>
+                <td>${item.categoria}</td>
+                <td>${item.stock}</td>
+                <td>${item.cart_qty} uds</td>
+                <td>${item.total}€</td>
+                <td>
+                    <button onclick="anadirAlCarrito(${item.id})">+</button>
+                    <button onclick="restarProductoCart(${item.id})">-</button>
+                </td>
             </tr>`)
+            
+        });
     }
+}
+
+async function restarProductoCart(id)
+{
+    let response = await fetch('http://localhost/mvc-country-app/Public/cartproduct/restCart', {
+        method: 'POST',
+        body: JSON.stringify({ id }),
+    });
+    let responseData = await response.json();
+    console.log(responseData);
+    if(responseData.success)
+        {
+            const carrito = document.getElementById('tbody_cart');
+            const total = document.getElementById('total_cart');
+            carrito.innerHTML = '';
+            total.innerHTML = responseData.result.sub_total + '€';
+            responseData.result.productos.forEach(item => {
+                carrito.insertAdjacentHTML('afterbegin', `<tr id="item_${item.id}">
+                    <td>${item.id}</td>
+                    <td>${item.nombre}</td>
+                    <td>${item.categoria}</td>
+                    <td>${item.stock}</td>
+                    <td>${item.cart_qty} uds</td>
+                    <td>${item.total}€</td>
+                    <td>
+                        <button onclick="anadirAlCarrito(${item.id})">+</button>
+                        <button onclick="restarProductoCart(${item.id})">-</button>
+                    </td>
+                </tr>`)
+                
+            });
+        }
 }
 
 async function eliminarProducto(id)
