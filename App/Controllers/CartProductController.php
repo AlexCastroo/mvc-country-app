@@ -19,18 +19,27 @@ class CartProductController extends Controller {
     }
 
     public function home()
+    {  
+        //echo json_encode($_SESSION['cart']);
+$this->render('cartProduct', [], 'site');  
+    }
+
+    public function carrito()
     {
-        print_r('acceso /home:');   
-        echo json_encode($_SESSION['cart']);     
+        $res = new Result();
+
+        header('Content-Type: application/json');
+        $res->success = true;
+        $res->result['productos'] = $_SESSION['cart'];
+        $res->result['sub_total'] = round($_SESSION['sub_total'], 2);
+        $res->message = 'Producto añadido al carrito';
+        echo json_encode($res);
     }
 
     public function exit()
     {
         session_destroy();
-        print_r('Sesion destruida');
-        echo '<a href="http://localhost/mvc-country-app/Public/product">
-                <button>Ininiar sesion</button>
-              </a>';
+        $this->render('login', [], 'site');
     }
 
     public function addCart()

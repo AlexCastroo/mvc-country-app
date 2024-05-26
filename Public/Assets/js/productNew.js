@@ -10,6 +10,7 @@ async function productoFormularioSubmit() {
     producto.nombre = document.getElementById('nombre').value;
     producto.categoria = document.getElementById('categoria').value;
     producto.stock = document.getElementById('stock').value;
+    producto.precio = document.getElementById('precio').value;
 
     //let ruta = producto.id > 0 ? 'update' : 'create';
 

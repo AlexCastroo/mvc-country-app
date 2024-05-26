@@ -12,7 +12,7 @@ class ProductController extends Controller {
 
     public function home()
     {   
-        $this->render('product',['cartProduct'],'site');
+        $this->render('product',[],'site');
         //$this->render('cartProduct');
     }
 
@@ -27,6 +27,7 @@ class ProductController extends Controller {
             'nombre' => $body['nombre'],
             'categoria' => $body['categoria'],
             'stock' => $body['stock'],
+            'precio' => $body['precio'],
         ]);
 
         $res->success = true;

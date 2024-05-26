@@ -14,7 +14,7 @@ class PageController extends Controller {
 
     public function tienda() 
     {
-        $this->render('tienda', [], 'site');
+        $this->render('product', [], 'site');
     }
 
     public function login() 
