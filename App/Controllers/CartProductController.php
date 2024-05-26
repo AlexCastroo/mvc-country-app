@@ -45,7 +45,7 @@ class CartProductController extends Controller {
         header('Content-Type: application/json');
         $res->success = true;
         $res->result['productos'] = $_SESSION['cart'];
-        $res->result['sub_total'] = $_SESSION['sub_total'];
+        $res->result['sub_total'] = round($_SESSION['sub_total'], 2);
         $res->message = 'Producto añadido al carrito';
         echo json_encode($res);
     }
@@ -85,7 +85,7 @@ class CartProductController extends Controller {
     
         $res->success = true;
         $res->result['productos'] = $_SESSION['cart'];
-        $res->result['sub_total'] = $_SESSION['sub_total'];
+        $res->result['sub_total'] = round($_SESSION['sub_total'], 2);
         $res->message = 'Producto restado al carrito';
         echo json_encode($res);
     }

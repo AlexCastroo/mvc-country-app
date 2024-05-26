@@ -23,6 +23,7 @@
                     if ($id == $product['id']) {
                         $product['cart_qty']++;
                         $product['total'] = $product['cart_qty'] * $product['precio'];
+                        $product['total'] = round($product['total'],2);
                         $productFound = true;
                         break;
                     }

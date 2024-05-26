@@ -1,3 +1,5 @@
+<script src="<?= URL_PATH ?>/Assets/js/productNew.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <form action="" id="productoFormulario">
     <input name="" id="id" value="<?= $parameters['product']['id'] ?? '2' ?>">
     <div>
@@ -15,4 +17,4 @@
     <button type="submit">GUARDAR</button>
 </form>
 
-<script src="<?= URL_PATH ?>/Assets/js/productNew.js"></script>
+
