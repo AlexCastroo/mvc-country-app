@@ -1,7 +1,7 @@
 <h1 class="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-emerald-100 md:text-5xl lg:text-6xl dark:text-white">Cart Model<span class="text-emerald-200 dark:text-emerald-200"> - MVC</span></h1>
 
-<div class="container w-full flex flex-row w-2/4">
-    <div class="container flex flex-col justify-center w-2/4 mx-2">
+<div class="container w-full flex justify-center">
+    <div class="container flex flex-col w-2/4">
         <table class="text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-emerald-50 uppercase bg-emerald-950 dark:bg-gray-700 dark:text-gray-400">
                 <tr scope="col" class="px-6 py-3">

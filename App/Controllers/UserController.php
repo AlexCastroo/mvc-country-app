@@ -18,14 +18,27 @@ class UserController extends Controller {
 
     public function login()
     {
+        $usuario = (isset($_REQUEST['usuario'])) ? $_REQUEST['usuario'] : null;
+        $pass = (isset($_REQUEST['password'])) ? $_REQUEST['password'] : null;
+
+        $errores= array();
+
+        if(empty($usuario))
+        {
+            $errores['usuarios'] = "Debe introducir un usuario";
+        }
+        if(empty($pass))
+        {
+            $errores['password'] = "Debe introducir una contraseña";
+        }
+
+        if(empty($errores))
+
 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            $usuario = (isset($_REQUEST['usuario'])) ? $_REQUEST['usuario'] : null;
-            $pass = (isset($_REQUEST['password'])) ? $_REQUEST['password'] : null;
-
             $user = $this->userModel->getUser($usuario);
-            var_dump($user['password']);
+            //var_dump($user['password']);
             
             if(password_verify($pass, $user['password']))
             {
@@ -88,7 +101,8 @@ class UserController extends Controller {
         }
         else
         {
-            echo "Verifica los campos";
+            echo "<h4>Verifica los campos</h4>";
+            $this->render('registro', [], 'site');
         }
     }
 

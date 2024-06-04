@@ -1,6 +1,6 @@
     
     
-    <div class="container text-center flex flex-col w-1/4 mx-auto my-52 px-10 py-10 bg-emerald-100 rounded-lg border-2 border-emerald-200">
+    <div class="container text-center flex flex-col w-1/4 mx-auto my-10 px-10 py-10 bg-emerald-100 rounded-lg border-2 border-emerald-200">
         <h1 class="mb-4 text-2xl text-center font-extrabold leading-none tracking-tight text-emerald-400 md:text-2xl lg:text-6xl dark:text-white">Registrarse</h1>
 
 
