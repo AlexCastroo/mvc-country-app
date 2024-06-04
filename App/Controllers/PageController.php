@@ -22,4 +22,9 @@ class PageController extends Controller {
         $this->render('login', [], 'site');
     }
 
+    public function registro() 
+    {
+        $this->render('registro', [], 'site');
+    }
+
 }

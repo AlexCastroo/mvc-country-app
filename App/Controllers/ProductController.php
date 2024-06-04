@@ -12,6 +12,7 @@ class ProductController extends Controller {
 
     public function home()
     {   
+        session_start();
         $this->render('product',[],'site');
         //$this->render('cartProduct');
     }

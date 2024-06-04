@@ -3,7 +3,7 @@
 
 
 <div class="container flex flex-col w-2/4 mx-auto px-10 py-10 text-center bg-emerald-800 rounded-lg border-2 border-emerald-600">
-        <h1 class="mb-4 text-2xl text-center font-extrabold leading-none tracking-tight text-emerald-400 md:text-2xl lg:text-6xl dark:text-white">Carrito</h1>
+        <h1 class="mb-4 text-2xl text-center font-extrabold leading-none tracking-tight text-emerald-400 md:text-2xl lg:text-6xl dark:text-white">Carrito de <?= $_SESSION['usuario'] ?? '' ?></h1>
 
     <div class="container flex-col justify-center text-center ">
         <table id="tabla_carrito" class="text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">

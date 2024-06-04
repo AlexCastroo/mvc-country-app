@@ -16,6 +16,15 @@
             $stm->execute();
             return $stm->fetchAll();
         }
+
+        public function getUser($user)
+        {
+            $stm = $this->db->prepare("SELECT * FROM {$this->table} WHERE nombre_usuario = :user");
+            $stm->bindValue(":user", $user);
+            $stm->execute();
+            return $stm->fetch();
+        }
+
         public function getById($id){
             $stm = $this->db->prepare("SELECT * FROM {$this->table} WHERE id = :id");
             $stm->bindValue(":id", $id);

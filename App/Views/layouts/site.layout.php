@@ -10,6 +10,8 @@
 
 </head>
 <body>
+<h1 class="mb-4 text-xl text-center font-extrabold leading-none tracking-tight text-emerald-100 md:text-xl lg:text-xl dark:text-white">Bienvenido <?= $_SESSION['usuario'] ?? '' ?></h1>
+
     <?php echo $content ?>
     <br>
     <a class="text-white text-center" href="http://localhost/mvc-country-app/Public/product">

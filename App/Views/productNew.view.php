@@ -5,7 +5,7 @@
     <form action="" id="productoFormulario">
         <div>
             <label for="small-input" class="block mb-2 text-sm font-medium text-emerald-500 dark:text-white">ID</label>
-            <input type="text" id="id" value="<?= $parameters['product']['id'] ?? '' ?>" value="<?= $parameters['product']['id'] ?? '' ?>" class="block w-full p-2 text-gray-900 border border-emerald-300 rounded-lg bg-emerald-50 text-xs focus:ring-emerald-500 focus:border-emerald-500 dark:bg-emerald-700 dark:border-emerald-600 dark:placeholder-emerald-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500">
+            <input type="text" id="id" value="<?= $parameters['product']['id'] ?? '' ?>" class="block w-full p-2 text-gray-900 border border-emerald-300 rounded-lg bg-emerald-50 text-xs focus:ring-emerald-500 focus:border-emerald-500 dark:bg-emerald-700 dark:border-emerald-600 dark:placeholder-emerald-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500">
         </div>
 
         <div>
