@@ -21,7 +21,7 @@ class CartProductController extends Controller {
     public function home()
     {  
         //echo json_encode($_SESSION['cart']);
-$this->render('cartProduct', [], 'site');  
+        $this->render('cartProduct', [], 'site');  
     }
 
     public function carrito()
